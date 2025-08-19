@@ -326,6 +326,7 @@ export type Workspace = {
     webhook?: RelationshipItem;
     agent?: RelationshipItem;
     history?: RelationshipArray;
+    vcs?: RelationshipItem;
   };
 };
 export type WorkspaceAttributes = {

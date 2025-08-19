@@ -3,6 +3,7 @@ import { useState } from "react";
 import { WorkspaceGeneral } from "./General";
 import { WorkspaceWebhook } from "./Webhook";
 import { WorkspaceAdvanced } from "./Advanced";
+import { WorkspaceVcs } from "./Vcs";
 import { Workspace, Template, VcsType } from "../../types";
 import type { MenuProps } from "antd";
 
@@ -20,7 +21,7 @@ export const WorkspaceSettings = ({ workspace, orgTemplates, manageWorkspace, vc
   const [activeKey, setActiveKey] = useState("general");
   const { token } = theme.useToken();
 
-  const handleMenuClick: MenuProps["onClick"] = (e) => {
+  const handleMenuClick: MenuProps["onClick"] = (e: any) => {
     setActiveKey(e.key);
   };
 
@@ -29,6 +30,10 @@ export const WorkspaceSettings = ({ workspace, orgTemplates, manageWorkspace, vc
       case "general":
         return (
           <WorkspaceGeneral workspaceData={workspace} orgTemplates={orgTemplates} manageWorkspace={manageWorkspace} />
+        );
+      case "vcs":
+        return (
+          <WorkspaceVcs workspace={workspace} manageWorkspace={manageWorkspace} />
         );
       case "webhook":
         return (
@@ -55,6 +60,7 @@ export const WorkspaceSettings = ({ workspace, orgTemplates, manageWorkspace, vc
       key: "workspace-settings",
       children: [
         { key: "general", label: "General" },
+        { key: "vcs", label: "VCS Connection" },
         { key: "webhook", label: "Webhook" },
         { key: "advanced", label: "Advanced" },
       ],
