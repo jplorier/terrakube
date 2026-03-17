@@ -1,0 +1,114 @@
+.plan-view {
+  padding: 8px 4px;
+}
+
+.plan-summary-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+}
+
+.plan-summary-badges .ant-tag {
+  font-size: 13px;
+  padding: 3px 10px;
+}
+
+.plan-resources-collapse {
+  margin-bottom: 8px;
+}
+
+.plan-resource-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.plan-resource-address {
+  font-family: SFMono-Regular, consolas, "Liberation Mono", menlo, courier, monospace;
+  font-size: 0.875em;
+  font-weight: 600;
+}
+
+.plan-resource-action {
+  color: #888;
+  font-size: 0.85em;
+}
+
+.plan-resource-lines {
+  font-family: SFMono-Regular, consolas, "Liberation Mono", menlo, courier, monospace;
+  font-size: 0.8em;
+  white-space: pre;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.plan-line {
+  line-height: 1.6;
+  padding: 0 4px;
+}
+
+.plan-line-add {
+  color: #389e0d;
+}
+
+.plan-line-remove {
+  color: #cf1322;
+}
+
+.plan-line-update {
+  color: #d46b08;
+}
+
+.plan-line-comment {
+  color: #8c8c8c;
+  font-style: italic;
+}
+
+.plan-preamble-details {
+  margin-bottom: 8px;
+}
+
+.plan-preamble-summary {
+  cursor: pointer;
+  color: #888;
+  font-size: 0.85em;
+  padding: 4px 0;
+  user-select: none;
+}
+
+.plan-preamble-summary:hover {
+  color: #555;
+}
+
+.plan-preamble {
+  font-family: SFMono-Regular, consolas, "Liberation Mono", menlo, courier, monospace;
+  font-size: 0.8em;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #555;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 4px 0 0 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.plan-summary-line {
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-family: SFMono-Regular, consolas, "Liberation Mono", menlo, courier, monospace;
+  font-size: 0.875em;
+  font-weight: 600;
+  color: #333;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+}

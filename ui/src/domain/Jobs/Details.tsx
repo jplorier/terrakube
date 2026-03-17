@@ -19,6 +19,7 @@ import { ORGANIZATION_ARCHIVE } from "../../config/actionTypes";
 import axiosInstance, { axiosClient } from "../../config/axiosConfig";
 import { useAbortController, usePolling } from "../../hooks";
 import { Job, JobStep } from "../types";
+import { PlanView } from "./PlanView";
 import { TerminalOutput } from "./TerminalOutput";
 
 type Props = {
@@ -35,6 +36,7 @@ export const DetailsJob = ({ jobId }: Props) => {
   const [workspaceVcsName, setWorkspaceVcsName] = useState<String>();
   const [steps, setSteps] = useState<JobStep[]>([]);
   const [uiType, setUIType] = useState("structured");
+  const [logViewType, setLogViewType] = useState("simplified");
   const [uiTemplates, setUITemplates] = useState<Record<number, string>>({});
   const { getSignal: getJobSignal, abort: abortJobRequests } = useAbortController();
   const { getSignal: getContextSignal, abort: abortContextRequests } = useAbortController();
@@ -72,6 +74,10 @@ export const DetailsJob = ({ jobId }: Props) => {
 
   const onChange = (e: RadioChangeEvent) => {
     setUIType(e.target.value);
+  };
+
+  const onLogViewChange = (e: RadioChangeEvent) => {
+    setLogViewType(e.target.value);
   };
 
   const handleCancel = () => {
@@ -446,11 +452,23 @@ export const DetailsJob = ({ jobId }: Props) => {
                               )}
                             </>
                           ) : (
-                            <TerminalOutput
-                              outputLog={item.outputLog}
-                              stepName={item.name}
-                              isRunning={item.status === "running"}
-                            />
+                            <>
+                              <div style={{ textAlign: "right", padding: "5px" }}>
+                                <Radio.Group onChange={onLogViewChange} value={logViewType} size="small">
+                                  <Radio.Button value="simplified">Simplified</Radio.Button>
+                                  <Radio.Button value="console">Console</Radio.Button>
+                                </Radio.Group>
+                              </div>
+                              {logViewType === "simplified" ? (
+                                <PlanView outputLog={item.outputLog} />
+                              ) : (
+                                <TerminalOutput
+                                  outputLog={item.outputLog}
+                                  stepName={item.name}
+                                  isRunning={item.status === "running"}
+                                />
+                              )}
+                            </>
                           )}
                         </>
                       ),
