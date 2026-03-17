@@ -594,12 +594,15 @@ export const AddVCS = ({ setMode, loadVCS }: Props) => {
                     <b>Webhook:</b> <b>untick</b> Active
                   </li>
                   <li>
-                    <b>Repository permissions:</b> Commit statuses: Read and write (Only if webhook to be used on VCS
-                    workflow workspaces)
+                    <b>Repository permissions:</b>
                     <br />
-                    Content: Read-only
+                    Commit statuses: Read and write (Only if webhook to be used on VCS workflow workspaces)
+                    <br />
+                    Contents: Read-only
                     <br />
                     Metadata: Read-only
+                    <br />
+                    Pull requests: Read-only (Only if webhook to be used on VCS workflow workspaces)
                     <br />
                     Webhooks: Read and write (Only if webhook to be used on VCS workflow workspaces)
                   </li>
