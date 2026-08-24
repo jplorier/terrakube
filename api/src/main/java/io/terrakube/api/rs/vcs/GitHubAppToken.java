@@ -1,6 +1,7 @@
 package io.terrakube.api.rs.vcs;
 
 import java.sql.Types;
+import java.time.Instant;
 import java.util.UUID;
 
 import org.hibernate.annotations.JdbcTypeCode;
@@ -42,4 +43,9 @@ public class GitHubAppToken extends GenericAuditFields {
 
     @Column(name = "app_id")
     private String appId;
+
+    // When GitHub says this token stops working. Read on every use, so a token is never
+    // handed out past its life.
+    @Column(name = "expires_at")
+    private Instant expiresAt;
 }
